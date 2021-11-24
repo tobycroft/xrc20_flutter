@@ -37,7 +37,7 @@ class _Index4 extends State<Index4> {
   @override
   Future<void> get_user_info() async {
     Map<String, String> post = await AuthAction().LoginObject();
-    var ret = await Net().Post(Config().Url, Url_Index4().User_info, null, post, null);
+    var ret = await Net().Post(Config().Url, Url_Index4().User_info, Map(), post, Map());
     Map json = jsonDecode(ret);
     if (Auth().Return_login_check(context, json)) {
       if (json["code"] == 0) {
@@ -58,7 +58,7 @@ class _Index4 extends State<Index4> {
 
   Future<void> get_user_balance() async {
     Map<String, String> post = await AuthAction().LoginObject();
-    var ret = await Net().Post(Config().Url, Url_Index4().User_balance, null, post, null);
+    var ret = await Net().Post(Config().Url, Url_Index4().User_balance, Map(), post, Map());
     Map json = jsonDecode(ret);
     if (Auth().Return_login_check(context, json)) {
       if (json["code"] == 0) {

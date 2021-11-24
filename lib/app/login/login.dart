@@ -197,12 +197,12 @@ class _login extends State<Login> {
                     borderRadius: BorderRadius.all(Radius.circular(50))),
                 child: Text('登录'),
                 onPressed: () async {
-                  Map<String, dynamic> post = {
+                  Map<String, String> post = {
                     "qq": this.qq,
                     "password": this.password,
                   };
                   String ret = await Net()
-                      .Post(Config().Url, Url().login, null, post, null);
+                      .Post(Config().Url, Url().login, Map(), post, Map());
                   var json = jsonDecode(ret);
                   if (json["code"] == 0) {
                     Storage().Set("__uid__", json["data"]["uid"].toString());
