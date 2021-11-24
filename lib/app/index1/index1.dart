@@ -40,7 +40,8 @@ class _Index1 extends State<Index1> {
     Map<String, String> post = {};
     post["uid"] = await Storage().Get("__uid__");
     post["token"] = await Storage().Get("__token__");
-    var ret = await Net().Post(Config().Url, "/v1/bot/list/owned", null, post, null);
+    var ret = await Net()
+        .Post(Config().Url, "/v1/bot/list/owned", Map(), post, Map());
 
     var json = jsonDecode(ret);
     if (Auth().Return_login_check(context, json)) {
@@ -121,7 +122,8 @@ class _Index1 extends State<Index1> {
       body: EasyRefresh(
         scrollController: null,
         child: ListView.builder(
-          itemBuilder: (BuildContext con, int index) => BotItem(this.context, bot_datas[index]),
+          itemBuilder: (BuildContext con, int index) =>
+              BotItem(this.context, bot_datas[index]),
           itemCount: bot_datas.length,
         ),
         firstRefresh: false,
@@ -153,7 +155,7 @@ class BotItem extends StatelessWidget {
       leading: CircleAvatar(
         child: Image(image: NetworkImage(ret["img"])),
       ),
-      title: FlatButton(
+      title: TextButton(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
