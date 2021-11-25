@@ -177,6 +177,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.1"
+  loquacious:
+    dependency: "direct main"
+    description:
+      name: loquacious
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.1.1"
   matcher:
     dependency: transitive
     description:
