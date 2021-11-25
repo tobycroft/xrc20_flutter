@@ -120,7 +120,7 @@ class _Index1 extends State<Index1> {
           // ),
           IconButton(
               onPressed: () async {
-                Windows().Open(context, FullScreenScannerPage());
+                Windows().Open(context, Scanner());
               },
               icon: Icon(Icons.camera))
         ],
