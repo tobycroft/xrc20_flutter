@@ -3,6 +3,8 @@ import 'dart:ui';
 
 import 'package:xrc20_flutter/app/index1/help/help.dart';
 import 'package:xrc20_flutter/app/index1/robot_info/robot_info.dart';
+import 'package:xrc20_flutter/app/index1/scanner/scanner.dart';
+import 'package:xrc20_flutter/app/login/help/help.dart';
 import 'package:xrc20_flutter/config/auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -40,8 +42,7 @@ class _Index1 extends State<Index1> {
     Map<String, String> post = {};
     post["uid"] = await Storage().Get("__uid__");
     post["token"] = await Storage().Get("__token__");
-    var ret = await Net()
-        .Post(Config().Url, "/v1/bot/list/owned", Map(), post, Map());
+    var ret = await Net().Post(Config().Url, "/v1/bot/list/owned", Map(), post, Map());
 
     var json = jsonDecode(ret);
     if (Auth().Return_login_check(context, json)) {
@@ -72,58 +73,62 @@ class _Index1 extends State<Index1> {
         backgroundColor: Colors.black,
         centerTitle: true,
         actions: <Widget>[
-          PopupMenuButton(
-            icon: Icon(Icons.menu),
-            offset: Offset(100, 100),
-            itemBuilder: (BuildContext context) => <PopupMenuItem<String>>[
-              Tuuz_Popup().MenuItem(Icons.login, "登录", "login"),
-              Tuuz_Popup().MenuItem(Icons.logout, "退出登录", "logout"),
-              Tuuz_Popup().MenuItem(Icons.help_center, "首页帮助", "index_help"),
-              Tuuz_Popup().MenuItem(Icons.qr_code, "扫码", "scanner"),
-            ],
-            onSelected: (String value) {
-              print(value);
-              switch (value) {
-                case "login":
-                  {
-                    Windows().Open(context, Login());
-                    break;
-                  }
-                case "logout":
-                  {
-                    Alert().Simple(context, "是否退出？", "点击确认后退出", () {
-                      // Storage().Delete("__uid__");
-                      Storage().Delete("__token__");
-                    });
-                    break;
-                  }
-                case "index_help":
-                  {
-                    Windows().Open(context, Index_Help());
-                    break;
-                  }
-
-                case "scanner":
-                  {
-                    Alert().Simple(context, "扫码测试", "Scanner", () {});
-                    break;
-                  }
-
-                default:
-                  {
-                    Alert().Simple(context, "SS", value, () {});
-                    break;
-                  }
-              }
-            },
-          ),
+          // PopupMenuButton(
+          //   icon: Icon(Icons.menu),
+          //   offset: Offset(50, 50),
+          //   itemBuilder: (BuildContext context) => <PopupMenuItem<String>>[
+          //     Tuuz_Popup().MenuItem(Icons.login, "登录", "login"),
+          //     Tuuz_Popup().MenuItem(Icons.logout, "退出登录", "logout"),
+          //     Tuuz_Popup().MenuItem(Icons.help_center, "首页帮助", "index_help"),
+          //     Tuuz_Popup().MenuItem(Icons.qr_code, "扫码", "scanner"),
+          //   ],
+          //   onSelected: (String value) {
+          //     print(value);
+          //     switch (value) {
+          //       case "login":
+          //         {
+          //           Windows().Open(context, Login());
+          //           break;
+          //         }
+          //       case "logout":
+          //         {
+          //           Alert().Simple(context, "是否退出？", "点击确认后退出", () {
+          //             // Storage().Delete("__uid__");
+          //             Storage().Delete("__token__");
+          //           });
+          //           break;
+          //         }
+          //       case "index_help":
+          //         {
+          //           Windows().Open(context, Index_Help());
+          //           break;
+          //         }
+          //
+          //       case "scanner":
+          //         {
+          //           Alert().Simple(context, "扫码测试", "Scanner", () {});
+          //           break;
+          //         }
+          //
+          //       default:
+          //         {
+          //           Alert().Simple(context, "SS", value, () {});
+          //           break;
+          //         }
+          //     }
+          //   },
+          // ),
+          IconButton(
+              onPressed: () async {
+                Windows().Open(context, Scanner());
+              },
+              icon: Icon(Icons.camera))
         ],
       ),
       body: EasyRefresh(
         scrollController: null,
         child: ListView.builder(
-          itemBuilder: (BuildContext con, int index) =>
-              BotItem(this.context, bot_datas[index]),
+          itemBuilder: (BuildContext con, int index) => BotItem(this.context, bot_datas[index]),
           itemCount: bot_datas.length,
         ),
         firstRefresh: false,

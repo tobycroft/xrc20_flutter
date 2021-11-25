@@ -39,15 +39,6 @@ class _robot_info_index extends State<Robot_info_index> {
                   color: Colors.green,
                   height: 100,
                 ),
-                Center(
-                  child: ClipOval(
-                    //圆形头像
-                    child: Image.network(
-                      this.robot_info["img"].toString(),
-                      width: 100,
-                    ),
-                  ),
-                ),
                 // Row(
                 //   mainAxisAlignment: MainAxisAlignment.spaceAround,
                 //   children: [
