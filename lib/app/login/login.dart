@@ -19,8 +19,8 @@ class Login extends StatefulWidget {
 }
 
 class _login extends State<Login> {
-  String qq;
-  String password;
+  String? qq;
+  String? password;
 
   @override
   Widget build(BuildContext context) {
@@ -197,7 +197,7 @@ class _login extends State<Login> {
                     borderRadius: BorderRadius.all(Radius.circular(50))),
                 child: Text('登录'),
                 onPressed: () async {
-                  Map<String, String> post = {
+                  Map<String, String?> post = {
                     "qq": this.qq,
                     "password": this.password,
                   };

@@ -57,7 +57,7 @@ class TuuzOrm {
 
   // query
   String _query;
-  Map<String, List<dynamic>> _queryArgs = {
+  Map<String, List<dynamic>>? _queryArgs = {
     'values': [],
     'where': [],
     'having': [],
@@ -98,9 +98,12 @@ class TuuzOrm {
   // ##################
   List<dynamic> _getQueryArgs() {
     return [
-      ...this._queryArgs['values'],
-      ...this._queryArgs['where'],
-      ...this._queryArgs['having'],
+      // ...this._queryArgs['values'],
+      // ...this._queryArgs['where'],
+      // ...this._queryArgs['having'],
+      this._queryArgs['values'],
+      this._queryArgs['where'],
+      this._queryArgs['having'],
     ];
   }
 
@@ -116,7 +119,7 @@ class TuuzOrm {
 
   // PARSE TABLE AND ALIAS
   // this method parses the string of a table and eventually stores the alias then returns the table name
-  String _parseTableAndAlias(String tableName) {
+  String _parseTableAndAlias(String? tableName) {
     final splitted = tableName.toLowerCase().split('as');
     final t = splitted[0].trim();
     String a;
@@ -127,10 +130,10 @@ class TuuzOrm {
     return t;
   }
 
-  String _checkTableAndAliasInColumn(String column, {String tableName}) {
-    column.trim();
-    if (column.contains('.')) {
-      final splitted = column.split('.');
+  String? _checkTableAndAliasInColumn(String? column, {String? tableName}) {
+    column.toString().trim();
+    if (column.toString().contains('.')) {
+      final splitted = column.toString().split('.');
       if (splitted.length > 2) return null;
 
       final tableNotation = splitted[0];
@@ -169,7 +172,7 @@ class TuuzOrm {
   // ##################
   // SCHEMA METHODS
   // ##################
-  Future<List<String>> tableColumns(String tableName) async {
+  Future<Object> tableColumns(String tableName) async {
     try {
       final schema = await this._db.rawQuery("PRAGMA table_info('$tableName');");
       return schema.map((e) => e['name']);
@@ -193,7 +196,7 @@ class TuuzOrm {
   // ##################
 
   // SELECT
-  TuuzOrm select(List<String> columns) {
+  TuuzOrm select(List<String?> columns) {
     this._columns = columns
         .map((e) {
           return this._checkTableAndAliasInColumn(e);
@@ -208,7 +211,7 @@ class TuuzOrm {
     String column,
     dynamic value,
     String whereOperator, {
-    String comparisonOperator,
+    String? comparisonOperator,
   }) {
     if (this._where == null) this._where = [];
     this._queryArgs['where'].add(value);
@@ -417,7 +420,7 @@ class TuuzOrm {
 
   // INSERT
 
-  Future<int> insertGetId(Map<String, dynamic> values) async {
+  Future<int?> insertGetId(Map<String, dynamic> values) async {
     try {
       return await this._db.insert(this._table, values);
     } catch (e) {
@@ -491,7 +494,7 @@ class TuuzOrm {
     }
   }
 
-  Future<void> truncate() async {
+  Future truncate() async {
     try {
       final query = """
         DELETE FROM ${this._table};
@@ -509,7 +512,7 @@ class TuuzOrm {
   // COMPILATIONS
   // ##################
   String _compileTable(String query) {
-    String alias;
+    String? alias;
     if (this._tAliases.containsKey(this._table)) {
       alias = this._tAliases[this._table];
     }
@@ -537,7 +540,7 @@ class TuuzOrm {
         final joinTable = this._parseTableAndAlias(j['table']);
         final tableColumn = this._checkTableAndAliasInColumn(j['table_column'], tableName: this._table);
         final joinColumn = this._checkTableAndAliasInColumn(j['join_column'], tableName: j['table']);
-        return "${j['type']} $joinTable ${this._tAliases.containsKey(joinTable) ? this._tAliases[joinTable] + ' ' : ''}ON $joinColumn ${j['comparisonOperator']} $tableColumn";
+        return "${j['type']} $joinTable ${this._tAliases.containsKey(joinTable) ? this._tAliases[joinTable].toString() + ' ' : ''}ON $joinColumn ${j['comparisonOperator']} $tableColumn";
       }).join(' ');
       query = query.replaceFirst('#join', q);
     } else {

@@ -1,9 +1,9 @@
 import 'package:sqflite/sqflite.dart';
 
 class TuuzDb {
-  Future<Database> _db;
+  Future<Database>? _db;
 
-  Future<Database> getDb() {
+  Future<Database>? getDb() {
     _db ??= _initDb();
     return _db;
   }
@@ -23,7 +23,8 @@ class TuuzDb {
 
   Future<void> _onCreate(Database db, int version) async {
     // Database is created, create the table
-    await db.execute("CREATE TABLE \"user\" ( \"id\" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, \"uid\" INTEGER, \"token\" TEXT, \"username\" TEXT, \"password\" TEXT );");
+    await db.execute(
+        "CREATE TABLE \"user\" ( \"id\" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, \"uid\" INTEGER, \"token\" TEXT, \"username\" TEXT, \"password\" TEXT );");
     // populate data
   }
 

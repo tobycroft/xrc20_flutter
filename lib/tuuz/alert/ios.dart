@@ -56,7 +56,7 @@ class Alert {
         ));
   }
 
-  Confirm(BuildContext context, String title, String content, VoidCallback on_press) {
+  Confirm(BuildContext context, String title, String content, VoidCallback? on_press) {
     showCupertinoDialog(
         context: context,
         builder: (context) => new CupertinoAlertDialog(
