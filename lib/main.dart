@@ -6,16 +6,13 @@ import 'package:xrc20_flutter/route.dart';
 import 'package:xrc20_flutter/tuuz/storage/storage.dart';
 
 void main() {
-  Init().init();
   runApp(MyApp());
 }
 
 class Init {
   void init() async {}
 
-  void is_login() async {
-
-  }
+  void is_login() async {}
 }
 
 class MyApp extends StatelessWidget {
@@ -96,7 +93,7 @@ class BotomeMenumPageState extends State<BotomeMenumPage> {
   ];
 
   //点击导航项是要显示的页面
-  final pages = [Index1("机器人列表"), ChildItemView("群管理编写中"), ChildItemView("插件编写中"), Index4("我的")];
+  final pages = [Index1("钱包"), ChildItemView("市场"), ChildItemView("浏览"), Index4("我")];
 
   Widget buildBottomTabScaffold() {
     return Scaffold(
