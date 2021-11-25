@@ -1,88 +1,38 @@
-import 'package:flutter/cupertino.dart';
+import 'package:ai_barcode_example/app_barcode_scanner_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:scan/scan.dart';
 
-class Scanner extends StatefulWidget {
+///
+/// FullScreenScannerPage
+class FullScreenScannerPage extends StatefulWidget {
   @override
-  _Scanner createState() => _Scanner();
+  _FullScreenScannerPageState createState() => _FullScreenScannerPageState();
 }
 
-class _Scanner extends State<Scanner> {
-  String _platformVersion = 'Unknown';
-
-  ScanController controller = ScanController();
-  String qrcode = 'Unknown';
-
-  @override
-  void initState() {
-    super.initState();
-    initPlatformState();
-  }
-
-  Future<void> initPlatformState() async {
-    String platformVersion;
-    try {
-      platformVersion = await Scan.platformVersion;
-    } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
-    }
-    if (!mounted) return;
-
-    setState(() {
-      _platformVersion = platformVersion;
-    });
-  }
+class _FullScreenScannerPageState extends State<FullScreenScannerPage> {
+  String _code = '';
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Plugin example app'),
-        ),
-        body: Column(
-          children: [
-            Text('Running on: $_platformVersion\n'),
-            Wrap(
-              children: [
-                ElevatedButton(
-                  child: Text("toggleTorchMode"),
-                  onPressed: () {
-                    controller.toggleTorchMode();
-                  },
-                ),
-                ElevatedButton(
-                  child: Text("pause"),
-                  onPressed: () {
-                    controller.pause();
-                  },
-                ),
-                ElevatedButton(
-                  child: Text("resume"),
-                  onPressed: () {
-                    controller.resume();
-                  },
-                ),
-              ],
+    return Scaffold(
+      appBar: AppBar(),
+      body: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("「$_code」"),
+            ],
+          ),
+          Expanded(
+            child: AppBarcodeScannerWidget.defaultStyle(
+              resultCallback: (String code) {
+                setState(() {
+                  _code = code;
+                });
+              },
             ),
-            Container(
-              width: 220,
-              height: 400,
-              child: ScanView(
-                controller: controller,
-                scanAreaScale: .7,
-                scanLineColor: Colors.green,
-                onCapture: (data) {
-                  setState(() {
-                    qrcode = data;
-                  });
-                },
-              ),
-            ),
-            Text('scan result is $qrcode'),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
