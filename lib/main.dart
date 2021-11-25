@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:xrc20_flutter/config/auth.dart';
 import 'package:xrc20_flutter/route.dart';
 import 'package:xrc20_flutter/tuuz/storage/storage.dart';
+import 'package:crypto_font_icons/crypto_font_icons.dart';
 
 void main() {
   runApp(MyApp());
@@ -72,23 +73,23 @@ class BotomeMenumPageState extends State<BotomeMenumPage> {
   final List<BottomNavigationBarItem> bottomNavItems = [
     BottomNavigationBarItem(
       backgroundColor: Colors.blue,
-      icon: Icon(Icons.android_rounded),
-      title: Text("机器人控制"),
+      icon: Icon(CryptoFontIcons.BTC),
+      title: Text("钱包"),
     ),
     BottomNavigationBarItem(
       backgroundColor: Colors.blue[600],
       icon: Icon(Icons.desktop_windows),
-      title: Text("群管理"),
+      title: Text("市场"),
     ),
     BottomNavigationBarItem(
       backgroundColor: Colors.blue[800],
       icon: Icon(Icons.add_circle_outline),
-      title: Text("插件"),
+      title: Text("浏览"),
     ),
     BottomNavigationBarItem(
       backgroundColor: Colors.blue[900],
       icon: Icon(Icons.person),
-      title: Text("我的"),
+      title: Text("我"),
     ),
   ];
 
