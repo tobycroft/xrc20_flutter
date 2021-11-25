@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:images_picker/images_picker.dart';
 import 'package:scan/scan.dart';
 
 ///
