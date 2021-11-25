@@ -1,7 +1,4 @@
 PODS:
-  - ai_barcode (0.0.1):
-    - Flutter
-    - MTBBarcodeScanner
   - device_info (0.0.1):
     - Flutter
   - Flutter (1.0.0)
@@ -11,7 +8,9 @@ PODS:
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
-  - MTBBarcodeScanner (5.0.11)
+  - images_picker (0.0.1):
+    - Flutter
+    - ZLPhotoBrowser (= 4.1.9)
   - package_info (0.0.1):
     - Flutter
   - package_info_plus (0.4.5):
@@ -19,6 +18,8 @@ PODS:
   - "permission_handler (5.1.0+2)":
     - Flutter
   - r_upgrade (0.0.1):
+    - Flutter
+  - scan (0.0.1):
     - Flutter
   - shared_preferences_ios (0.0.1):
     - Flutter
@@ -28,16 +29,20 @@ PODS:
   - Toast (4.0.0)
   - url_launcher (0.0.1):
     - Flutter
+  - ZLPhotoBrowser (4.1.9):
+    - ZLPhotoBrowser/Core (= 4.1.9)
+  - ZLPhotoBrowser/Core (4.1.9)
 
 DEPENDENCIES:
-  - ai_barcode (from `.symlinks/plugins/ai_barcode/ios`)
   - device_info (from `.symlinks/plugins/device_info/ios`)
   - Flutter (from `Flutter`)
   - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
+  - images_picker (from `.symlinks/plugins/images_picker/ios`)
   - package_info (from `.symlinks/plugins/package_info/ios`)
   - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
   - permission_handler (from `.symlinks/plugins/permission_handler/ios`)
   - r_upgrade (from `.symlinks/plugins/r_upgrade/ios`)
+  - scan (from `.symlinks/plugins/scan/ios`)
   - shared_preferences_ios (from `.symlinks/plugins/shared_preferences_ios/ios`)
   - sqflite (from `.symlinks/plugins/sqflite/ios`)
   - url_launcher (from `.symlinks/plugins/url_launcher/ios`)
@@ -45,18 +50,18 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - FMDB
-    - MTBBarcodeScanner
     - Toast
+    - ZLPhotoBrowser
 
 EXTERNAL SOURCES:
-  ai_barcode:
-    :path: ".symlinks/plugins/ai_barcode/ios"
   device_info:
     :path: ".symlinks/plugins/device_info/ios"
   Flutter:
     :path: Flutter
   fluttertoast:
     :path: ".symlinks/plugins/fluttertoast/ios"
+  images_picker:
+    :path: ".symlinks/plugins/images_picker/ios"
   package_info:
     :path: ".symlinks/plugins/package_info/ios"
   package_info_plus:
@@ -65,6 +70,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/permission_handler/ios"
   r_upgrade:
     :path: ".symlinks/plugins/r_upgrade/ios"
+  scan:
+    :path: ".symlinks/plugins/scan/ios"
   shared_preferences_ios:
     :path: ".symlinks/plugins/shared_preferences_ios/ios"
   sqflite:
@@ -73,21 +80,22 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/url_launcher/ios"
 
 SPEC CHECKSUMS:
-  ai_barcode: 67fb0a7b732dbb87e92b59bb90a438db9383fa2f
   device_info: d7d233b645a32c40dfdc212de5cf646ca482f175
   Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
   fluttertoast: 6122fa75143e992b1d3470f61000f591a798cc58
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
-  MTBBarcodeScanner: f453b33c4b7dfe545d8c6484ed744d55671788cb
+  images_picker: 7326dd6463f772a69f68bc228ebfabd7db3917c4
   package_info: 873975fc26034f0b863a300ad47e7f1ac6c7ec62
   package_info_plus: 6c92f08e1f853dc01228d6f553146438dafcd14e
   permission_handler: ccb20a9fad0ee9b1314a52b70b76b473c5f8dab0
   r_upgrade: 44d715c61914cce3d01ea225abffe894fd51c114
+  scan: aea35bb4aa59ccc8839c576a18cd57c7d492cc86
   shared_preferences_ios: aef470a42dc4675a1cdd50e3158b42e3d1232b32
   sqflite: 6d358c025f5b867b29ed92fc697fd34924e11904
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   url_launcher: b6e016d912f04be9f5bf6e8e82dc599b7ba59649
+  ZLPhotoBrowser: 320aec37f64b0f58d40abd852956c64530011ea4
 
-PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
+PODFILE CHECKSUM: 3ed452d0a19c518c00c368fa2b2bb74430f6d271
 
 COCOAPODS: 1.10.0
