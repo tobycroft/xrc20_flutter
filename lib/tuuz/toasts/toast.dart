@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class Toasts {
-  Future<void> Show(String text) {
+  Future<void> Show(String text) async {
     Fluttertoast.showToast(
       msg: text,
       toastLength: Toast.LENGTH_SHORT,
@@ -13,5 +13,4 @@ class Toasts {
       fontSize: 16.0,
     );
   }
-
 }
