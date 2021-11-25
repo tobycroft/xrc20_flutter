@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:images_picker/images_picker.dart';
 import 'package:scan/scan.dart';
 
 class Scanner extends StatefulWidget {
@@ -63,20 +62,6 @@ class _Scanner extends State<Scanner> {
                   child: Text("resume"),
                   onPressed: () {
                     controller.resume();
-                  },
-                ),
-                ElevatedButton(
-                  child: Text("parse from image"),
-                  onPressed: () async {
-                    List<Media>? res = await ImagesPicker.pick();
-                    if (res != null) {
-                      String? str = await Scan.parse(res[0].path);
-                      if (str != null) {
-                        setState(() {
-                          qrcode = str;
-                        });
-                      }
-                    }
                   },
                 ),
               ],
