@@ -73,7 +73,7 @@ class BotomeMenumPageState extends State<BotomeMenumPage> {
   final List<BottomNavigationBarItem> bottomNavItems = [
     BottomNavigationBarItem(
       backgroundColor: Colors.blue,
-      icon: Icon(CryptoFontIcons.BTC),
+      icon: Icon(CryptoFontIcons.ETH),
       title: Text("钱包"),
     ),
     BottomNavigationBarItem(
