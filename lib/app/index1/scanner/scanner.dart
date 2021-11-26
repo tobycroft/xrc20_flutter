@@ -1,3 +1,5 @@
+import 'package:device_info/device_info.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:images_picker/images_picker.dart';
@@ -40,12 +42,28 @@ class _Scanner extends State<Scanner> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Plugin example app'),
-        ),
+        // appBar: AppBar(
+        //   title: Text("Scanner"),
+        //   centerTitle: true,
+        //   backgroundColor: Color(0),
+        // ),
         body: Column(
           children: [
-            Text('Running on: $_platformVersion\n'),
+            Container(
+              width: double.infinity,
+              height: 900,
+              child: ScanView(
+                controller: controller,
+                scanAreaScale: .7,
+                scanLineColor: Colors.green,
+                onCapture: (data) {
+                  setState(() {
+                    qrcode = data;
+                  });
+                },
+              ),
+            ),
+            Text('scan result is $qrcode'),
             Wrap(
               children: [
                 ElevatedButton(
@@ -82,21 +100,6 @@ class _Scanner extends State<Scanner> {
                 ),
               ],
             ),
-            Container(
-              width: 220,
-              height: 400,
-              child: ScanView(
-                controller: controller,
-                scanAreaScale: .7,
-                scanLineColor: Colors.green,
-                onCapture: (data) {
-                  setState(() {
-                    qrcode = data;
-                  });
-                },
-              ),
-            ),
-            Text('scan result is $qrcode'),
           ],
         ),
       ),
