@@ -73,51 +73,6 @@ class _Index1 extends State<Index1> {
         backgroundColor: Colors.black,
         centerTitle: true,
         actions: <Widget>[
-          // PopupMenuButton(
-          //   icon: Icon(Icons.menu),
-          //   offset: Offset(50, 50),
-          //   itemBuilder: (BuildContext context) => <PopupMenuItem<String>>[
-          //     Tuuz_Popup().MenuItem(Icons.login, "登录", "login"),
-          //     Tuuz_Popup().MenuItem(Icons.logout, "退出登录", "logout"),
-          //     Tuuz_Popup().MenuItem(Icons.help_center, "首页帮助", "index_help"),
-          //     Tuuz_Popup().MenuItem(Icons.qr_code, "扫码", "scanner"),
-          //   ],
-          //   onSelected: (String value) {
-          //     print(value);
-          //     switch (value) {
-          //       case "login":
-          //         {
-          //           Windows().Open(context, Login());
-          //           break;
-          //         }
-          //       case "logout":
-          //         {
-          //           Alert().Simple(context, "是否退出？", "点击确认后退出", () {
-          //             // Storage().Delete("__uid__");
-          //             Storage().Delete("__token__");
-          //           });
-          //           break;
-          //         }
-          //       case "index_help":
-          //         {
-          //           Windows().Open(context, Index_Help());
-          //           break;
-          //         }
-          //
-          //       case "scanner":
-          //         {
-          //           Alert().Simple(context, "扫码测试", "Scanner", () {});
-          //           break;
-          //         }
-          //
-          //       default:
-          //         {
-          //           Alert().Simple(context, "SS", value, () {});
-          //           break;
-          //         }
-          //     }
-          //   },
-          // ),
           IconButton(
               onPressed: () async {
                 Windows().Open(context, Scanner());
@@ -127,12 +82,26 @@ class _Index1 extends State<Index1> {
       ),
       body: EasyRefresh(
         scrollController: null,
-        child: ListView.builder(
-          itemBuilder: (BuildContext con, int index) => BotItem(this.context, bot_datas[index]),
-          itemCount: bot_datas.length,
+        child: ListView(
+          children: [
+            Container(
+                width: double.infinity,
+                height: 300,
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                ),
+                child: Center(
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    decoration: BoxDecoration(
+                      color: Colors.green,
+                    ),
+                  ),
+                )),
+          ],
         ),
         firstRefresh: false,
-        onRefresh: get_data,
+        onRefresh: null,
       ),
       //   Center(
       //     //     child: ListView.builder(
@@ -148,49 +117,3 @@ List bot_datas = [];
 
 // Displays one Entry. If the entry has children then it's displayed
 // with an ExpansionTile.
-class BotItem extends StatelessWidget {
-  var item;
-  var _context;
-
-  BotItem(this._context, this.item);
-
-  Widget _buildTiles(Map ret) {
-    if (ret == null) return ListTile();
-    return ListTile(
-      leading: CircleAvatar(
-        child: Image(image: NetworkImage(ret["img"])),
-      ),
-      title: TextButton(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              ret["cname"].toString(),
-              style: Config().Text_Style_default,
-            ),
-            Text(
-              ret["bot"].toString(),
-              style: Config().Text_Style_default,
-            )
-          ],
-        ),
-        onPressed: () {
-          //Todo：短按进入机器人信息
-          Windows().Open(this._context, Robot_info_index(this.item));
-        },
-        onLongPress: () {
-          //Todo：长按弹出菜单
-        },
-      ),
-      trailing: Text(
-        ret["date"].toString(),
-        style: Config().Text_Style_default,
-      ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return _buildTiles(item);
-  }
-}
