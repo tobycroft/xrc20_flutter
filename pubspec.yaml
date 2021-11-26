@@ -39,7 +39,7 @@ dependencies:
 #  jpush_flutter: ^2.1.7
   package_info: ^2.0.2
   device_info: ^2.0.3
-#  permission_handler: ^8.3.0
+  permission_handler: ^8.3.0
   sqflite: ^2.0.0+4
   r_upgrade: ^0.3.6
   loquacious: ^0.1.1
