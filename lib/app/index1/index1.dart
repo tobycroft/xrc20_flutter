@@ -84,17 +84,25 @@ class _Index1 extends State<Index1> {
         scrollController: null,
         child: ListView(
           children: [
+            SizedBox(
+              height: 20,
+            ),
             Container(
                 width: double.infinity,
-                height: 300,
+                height: 200,
                 decoration: BoxDecoration(
-                  color: Colors.red,
-                ),
+                    // color: Colors.red,
+                    ),
                 child: Center(
                   child: Container(
                     width: MediaQuery.of(context).size.width * 0.9,
                     decoration: BoxDecoration(
-                      color: Colors.green,
+                      color: Colors.redAccent,
+                    ),
+                    child: ListView(
+                      children: [
+                        Text("Tron"),
+                      ],
                     ),
                   ),
                 )),
