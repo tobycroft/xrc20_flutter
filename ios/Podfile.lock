@@ -11,13 +11,6 @@ PODS:
   - images_picker (0.0.1):
     - Flutter
     - ZLPhotoBrowser (= 4.1.9)
-  - JCore (2.7.1)
-  - JPush (3.7.0):
-    - JCore (< 3.0.0, >= 2.0.0)
-  - jpush_flutter (0.0.2):
-    - Flutter
-    - JCore (= 2.7.1)
-    - JPush (= 3.7.0)
   - package_info (0.0.1):
     - Flutter
   - package_info_plus (0.4.5):
@@ -45,7 +38,6 @@ DEPENDENCIES:
   - Flutter (from `Flutter`)
   - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
   - images_picker (from `.symlinks/plugins/images_picker/ios`)
-  - jpush_flutter (from `.symlinks/plugins/jpush_flutter/ios`)
   - package_info (from `.symlinks/plugins/package_info/ios`)
   - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
   - permission_handler (from `.symlinks/plugins/permission_handler/ios`)
@@ -58,8 +50,6 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - FMDB
-    - JCore
-    - JPush
     - Toast
     - ZLPhotoBrowser
 
@@ -72,8 +62,6 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/fluttertoast/ios"
   images_picker:
     :path: ".symlinks/plugins/images_picker/ios"
-  jpush_flutter:
-    :path: ".symlinks/plugins/jpush_flutter/ios"
   package_info:
     :path: ".symlinks/plugins/package_info/ios"
   package_info_plus:
@@ -97,9 +85,6 @@ SPEC CHECKSUMS:
   fluttertoast: 6122fa75143e992b1d3470f61000f591a798cc58
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   images_picker: 7326dd6463f772a69f68bc228ebfabd7db3917c4
-  JCore: 9d5bda3a172c65bbe14f2806ab0f6246f8a06065
-  JPush: 1fd7a326e7e6588eba517659ce1b79a144e54938
-  jpush_flutter: d5fd523a73277ed66d453fc7ac1c981d1fa525e2
   package_info: 873975fc26034f0b863a300ad47e7f1ac6c7ec62
   package_info_plus: 6c92f08e1f853dc01228d6f553146438dafcd14e
   permission_handler: ccb20a9fad0ee9b1314a52b70b76b473c5f8dab0

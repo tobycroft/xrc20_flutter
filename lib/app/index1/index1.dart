@@ -89,19 +89,85 @@ class _Index1 extends State<Index1> {
             ),
             Container(
                 width: double.infinity,
-                height: 200,
-                decoration: BoxDecoration(
-                    // color: Colors.red,
-                    ),
+                // height: 100,
                 child: Center(
                   child: Container(
                     width: MediaQuery.of(context).size.width * 0.9,
                     decoration: BoxDecoration(
                       color: Colors.redAccent,
+                      shape: BoxShape.rectangle,
+                      borderRadius: new BorderRadius.all(Radius.elliptical(10, 10)),
                     ),
-                    child: ListView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text("Tron"),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        // Container(
+                        //   width: 50,
+                        //   height: 100,
+                        //   decoration: BoxDecoration(
+                        //     color: Colors.blue,
+                        //     shape: BoxShape.circle,
+                        //     // borderRadius: new BorderRadius.all(Radius.elliptical(10, 10)),
+                        //   ),
+                        // ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SizedBox(width: 10),
+                                Text(
+                                  "tron",
+                                  style: TextStyle(fontSize: 18, color: Colors.white),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  "TNyLRcPDmJs7uCRKSWvxeFiYLx5oySrzAf",
+                                  style: TextStyle(fontSize: 12, color: Colors.white),
+                                ),
+                                SizedBox(width: 2),
+                                Icon(Icons.qr_code_2, size: 13, color: Colors.white),
+                              ],
+                            )
+                          ],
+                        ),
+                        Container(
+                            alignment: Alignment.centerRight,
+                            height: 50,
+                            decoration: BoxDecoration(
+                                // color: Colors.green,
+                                ),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(
+                                  "\$14.88",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 24,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                )
+                              ],
+                            )),
                       ],
                     ),
                   ),
