@@ -296,18 +296,49 @@ class _Index1 extends State<Index1> {
                             onPressed: () {},
                             child: Container(
                               child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Container(
-                                    height: 50,
-                                    width: 50,
-                                    decoration: BoxDecoration(color: Colors.black12, shape: BoxShape.circle),
-                                    child: Image.network(
-                                      "https://files.readme.io/6d59b1b-small-icon_red.png",
-                                      scale: 2,
-                                    ),
+                                  Row(
+                                    children: [
+                                      Container(
+                                        height: 50,
+                                        width: 50,
+                                        decoration: BoxDecoration(color: Colors.black12, shape: BoxShape.circle),
+                                        child: Image.network(
+                                          "https://files.readme.io/6d59b1b-small-icon_red.png",
+                                          scale: 2,
+                                        ),
+                                      ),
+                                      SizedBox(width: 10),
+                                      Text("TRX", style: TextStyle(color: Colors.black)),
+                                    ],
                                   ),
-                                  SizedBox(width: 10),
-                                  Text("TRX", style: TextStyle(color: Colors.black)),
+                                  Row(
+                                    children: [
+                                      Column(
+                                        mainAxisAlignment: MainAxisAlignment.end,
+                                        crossAxisAlignment: CrossAxisAlignment.end,
+                                        children: [
+                                          Text(
+                                            "134.1234",
+                                            style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.w400,
+                                            ),
+                                          ),
+                                          Text(
+                                            "\$ 12.34",
+                                            style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w400,
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
                                 ],
                               ),
                             ),
@@ -321,14 +352,45 @@ class _Index1 extends State<Index1> {
                             onPressed: () {},
                             child: Container(
                               child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Container(
-                                      height: 50,
-                                      width: 50,
-                                      decoration: BoxDecoration(color: Colors.black12, shape: BoxShape.circle),
-                                      child: Icon(CryptoFontIcons.USDT)),
-                                  SizedBox(width: 10),
-                                  Text("USDT", style: TextStyle(color: Colors.black)),
+                                  Row(
+                                    children: [
+                                      Container(
+                                          height: 50,
+                                          width: 50,
+                                          decoration: BoxDecoration(color: Colors.black12, shape: BoxShape.circle),
+                                          child: Icon(CryptoFontIcons.USDT)),
+                                      SizedBox(width: 10),
+                                      Text("USDT", style: TextStyle(color: Colors.black)),
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      Column(
+                                        mainAxisAlignment: MainAxisAlignment.end,
+                                        crossAxisAlignment: CrossAxisAlignment.end,
+                                        children: [
+                                          Text(
+                                            "2",
+                                            style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.w400,
+                                            ),
+                                          ),
+                                          Text(
+                                            "\$ 2.00",
+                                            style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w400,
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  )
                                 ],
                               ),
                             ),
