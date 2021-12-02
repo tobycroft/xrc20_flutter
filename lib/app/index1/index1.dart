@@ -249,7 +249,9 @@ class _Index1 extends State<Index1> {
                             SizedBox(
                               width: 60,
                             ),
-                            Text("1.46kb", style: TextStyle()),
+                            Row(
+                              children: [Text("1.46", style: TextStyle()), Text("KB", style: TextStyle())],
+                            ),
                           ],
                         ),
                         SizedBox(height: 5),
