@@ -69,6 +69,10 @@ class _Index1 extends State<Index1> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: TextButton(
+          onPressed: (){},
+          child: Icon(Icons.align_horizontal_left),
+        ),
         title: Text(this._title),
         backgroundColor: Colors.black,
         centerTitle: true,
@@ -136,12 +140,32 @@ class _Index1 extends State<Index1> {
                                 SizedBox(
                                   width: 10,
                                 ),
-                                Text(
-                                  "TNyLRcPDmJs7uCRKSWvxeFiYLx5oySrzAf",
-                                  style: TextStyle(fontSize: 12, color: Colors.white),
+                                TextButton(
+                                  onPressed: () {
+                                    Alert().Simple(context, "123", "", () {});
+                                  },
+                                  style: ButtonStyle(
+                                    minimumSize: MaterialStateProperty.all(Size(14, 14)),
+                                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                    padding: MaterialStateProperty.all(EdgeInsets.zero),
+                                  ),
+                                  child: Text(
+                                    "TNyLRcPDmJs7uCRKSWvxeFiYLx5oySrzAf",
+                                    style: TextStyle(fontSize: 12, color: Colors.white),
+                                  ),
                                 ),
                                 SizedBox(width: 2),
-                                Icon(Icons.qr_code_2, size: 13, color: Colors.white),
+                                TextButton(
+                                  onPressed: () {
+                                    Alert().Simple(context, "123", "", () {});
+                                  },
+                                  style: ButtonStyle(
+                                    minimumSize: MaterialStateProperty.all(Size(14, 14)),
+                                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                    padding: MaterialStateProperty.all(EdgeInsets.zero),
+                                  ),
+                                  child: Icon(Icons.qr_code_2, size: 13, color: Colors.white),
+                                ),
                               ],
                             )
                           ],
@@ -172,6 +196,81 @@ class _Index1 extends State<Index1> {
                     ),
                   ),
                 )),
+            SizedBox(height: 10),
+            Container(
+              width: double.infinity,
+              alignment: Alignment.center,
+              // decoration: BoxDecoration(
+              //   color: Colors.green,
+              //   shape: BoxShape.rectangle,
+              //   borderRadius: new BorderRadius.all(Radius.elliptical(10, 10)),
+              // ),
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.9,
+                height: 50,
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  shape: BoxShape.rectangle,
+                  borderRadius: new BorderRadius.all(Radius.elliptical(10, 10)),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("能量", style: TextStyle(color: Colors.white)),
+                            SizedBox(
+                              width: 60,
+                            ),
+                            Text("50", style: TextStyle(color: Colors.white)),
+                          ],
+                        ),
+                        SizedBox(height: 5),
+                        Container(
+                          width: 150,
+                          child: LinearProgressIndicator(
+                            value: 50 / 100,
+                            minHeight: 10,
+                          ),
+                        )
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("带宽", style: TextStyle(color: Colors.white)),
+                            SizedBox(
+                              width: 60,
+                            ),
+                            Text("1.46kb", style: TextStyle(color: Colors.white)),
+                          ],
+                        ),
+                        SizedBox(height: 5),
+                        Container(
+                          width: 150,
+                          child: LinearProgressIndicator(
+                            value: 99 / 100,
+                            minHeight: 10,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              "资产",
+              style: TextStyle(color: Colors.grey, fontSize: 24),
+            )
           ],
         ),
         firstRefresh: false,
