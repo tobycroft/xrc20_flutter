@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:ui';
 
+import 'package:crypto_font_icons/crypto_font_icons.dart';
+import 'package:images_picker/images_picker.dart';
 import 'package:xrc20_flutter/app/index1/help/help.dart';
 import 'package:xrc20_flutter/app/index1/robot_info/robot_info.dart';
 import 'package:xrc20_flutter/app/index1/scanner/scanner.dart';
@@ -70,8 +72,7 @@ class _Index1 extends State<Index1> {
     return Scaffold(
       appBar: AppBar(
         leading: TextButton(
-
-          onPressed: (){},
+          onPressed: () {},
           child: Icon(Icons.align_horizontal_left),
         ),
         title: Text(this._title),
@@ -210,7 +211,7 @@ class _Index1 extends State<Index1> {
                 width: MediaQuery.of(context).size.width * 0.9,
                 height: 50,
                 decoration: BoxDecoration(
-                  color: Colors.blue,
+                  color: Colors.transparent,
                   shape: BoxShape.rectangle,
                   borderRadius: new BorderRadius.all(Radius.elliptical(10, 10)),
                 ),
@@ -222,11 +223,11 @@ class _Index1 extends State<Index1> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("能量", style: TextStyle(color: Colors.white)),
+                            Text("能量", style: TextStyle()),
                             SizedBox(
-                              width: 60,
+                              width: 80,
                             ),
-                            Text("50", style: TextStyle(color: Colors.white)),
+                            Text("50", style: TextStyle()),
                           ],
                         ),
                         SizedBox(height: 5),
@@ -244,11 +245,11 @@ class _Index1 extends State<Index1> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("带宽", style: TextStyle(color: Colors.white)),
+                            Text("带宽", style: TextStyle()),
                             SizedBox(
                               width: 60,
                             ),
-                            Text("1.46kb", style: TextStyle(color: Colors.white)),
+                            Text("1.46kb", style: TextStyle()),
                           ],
                         ),
                         SizedBox(height: 5),
@@ -268,10 +269,74 @@ class _Index1 extends State<Index1> {
             SizedBox(
               height: 10,
             ),
-            Text(
-              "资产",
-              style: TextStyle(color: Colors.grey, fontSize: 24),
-            )
+            Container(
+              alignment: Alignment.center,
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.9,
+                child: Column(
+                  children: [
+                    Row(children: [
+                      Text("资产", style: TextStyle(color: Colors.grey, fontSize: 18)),
+                    ]),
+                  ],
+                ),
+              ),
+            ),
+            Container(
+                alignment: Alignment.center,
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  child: Column(
+                    children: [
+                      Column(
+                        children: [
+                          TextButton(
+                            onPressed: () {},
+                            child: Container(
+                              child: Row(
+                                children: [
+                                  Container(
+                                    height: 50,
+                                    width: 50,
+                                    decoration: BoxDecoration(color: Colors.black12, shape: BoxShape.circle),
+                                    child: Image.network(
+                                      "https://files.readme.io/6d59b1b-small-icon_red.png",
+                                      scale: 2,
+                                    ),
+                                  ),
+                                  SizedBox(width: 10),
+                                  Text("TRX", style: TextStyle(color: Colors.black)),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Divider(height: 1, indent: 60, color: Colors.grey),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          TextButton(
+                            onPressed: () {},
+                            child: Container(
+                              child: Row(
+                                children: [
+                                  Container(
+                                      height: 50,
+                                      width: 50,
+                                      decoration: BoxDecoration(color: Colors.black12, shape: BoxShape.circle),
+                                      child: Icon(CryptoFontIcons.USDT)),
+                                  SizedBox(width: 10),
+                                  Text("USDT", style: TextStyle(color: Colors.black)),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Divider(height: 1, indent: 60, color: Colors.grey),
+                        ],
+                      ),
+                    ],
+                  ),
+                )),
           ],
         ),
         firstRefresh: false,
