@@ -38,17 +38,32 @@ class _Index1 extends State<Index1> {
     super.initState();
   }
 
+  // final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
-
-    final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-
     return Scaffold(
-      key: _scaffoldKey,
-      drawer: new Drawer(),
+      drawer: new Drawer(
+        child: Container(
+          child: Column(
+            children: [
+              Text("data"),
+              Text("data"),
+              Text("data"),
+              Text("data"),
+              Text("data"),
+              Text("data"),
+              Text("data"),
+              Text("data"),
+              Text("data"),
+              Text("data"),
+            ],
+          ),
+        ),
+      ),
       appBar: AppBar(
         leading: TextButton(
-          onPressed: () {},
+          onPressed: () => Scaffold.of(context).openDrawer(),
           child: Icon(Icons.align_horizontal_left),
         ),
         title: Text(this._title),
