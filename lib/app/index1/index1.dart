@@ -35,41 +35,17 @@ class _Index1 extends State<Index1> {
 
   @override
   void initState() {
-    get_data();
     super.initState();
   }
 
   @override
-  Future<void> get_data() async {
-    Map<String, String> post = {};
-    post["uid"] = await Storage().Get("__uid__");
-    post["token"] = await Storage().Get("__token__");
-    var ret = await Net().Post(Config().Url, "/v1/bot/list/owned", Map(), post, Map());
-
-    var json = jsonDecode(ret);
-    if (Auth().Return_login_check(context, json)) {
-      if (json["code"] == 0) {
-        setState(() {
-          bot_datas = [];
-          List data = json["data"];
-          data.forEach((value) {
-            bot_datas.add(value);
-          });
-        });
-      } else {
-        setState(() {
-          bot_datas = [];
-        });
-      }
-    } else {
-      setState(() {
-        bot_datas = [];
-      });
-    }
-  }
-
   Widget build(BuildContext context) {
+
+    final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
     return Scaffold(
+      key: _scaffoldKey,
+      drawer: new Drawer(),
       appBar: AppBar(
         leading: TextButton(
           onPressed: () {},
@@ -406,17 +382,6 @@ class _Index1 extends State<Index1> {
         firstRefresh: false,
         onRefresh: null,
       ),
-      //   Center(
-      //     //     child: ListView.builder(
-      //     //       itemBuilder: (BuildContext context, int index) => BotItem(bot_datas[index]),
-      //     //       itemCount: bot_datas.length,
-      //     //     ),
-      //     //   ),
     );
   }
 }
-
-List bot_datas = [];
-
-// Displays one Entry. If the entry has children then it's displayed
-// with an ExpansionTile.
