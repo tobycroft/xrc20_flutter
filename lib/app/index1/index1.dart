@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:ui';
 
 import 'package:crypto_font_icons/crypto_font_icons.dart';
+import 'package:flutter/services.dart';
 import 'package:images_picker/images_picker.dart';
 import 'package:xrc20_flutter/app/index1/help/help.dart';
 import 'package:xrc20_flutter/app/index1/robot_info/robot_info.dart';
@@ -38,33 +39,34 @@ class _Index1 extends State<Index1> {
     super.initState();
   }
 
-  // final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: new Drawer(
-        child: Container(
-          child: Column(
-            children: [
-              Text("data"),
-              Text("data"),
-              Text("data"),
-              Text("data"),
-              Text("data"),
-              Text("data"),
-              Text("data"),
-              Text("data"),
-              Text("data"),
-              Text("data"),
-            ],
+      key: _scaffoldKey,
+      drawer: Container(
+        height: 300,
+        child: Drawer(
+          child: Container(
+            child: Column(
+              children: [
+                Text("123"),
+              ],
+            ),
           ),
         ),
       ),
+      drawerEnableOpenDragGesture: true,
       appBar: AppBar(
-        leading: TextButton(
-          onPressed: () => Scaffold.of(context).openDrawer(),
-          child: Icon(Icons.align_horizontal_left),
+        leading: Builder(
+          builder: (context) {
+            return new IconButton(
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
+                icon: Icon(Icons.align_horizontal_left));
+          },
         ),
         title: Text(this._title),
         backgroundColor: Colors.black,
